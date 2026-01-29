@@ -936,6 +936,81 @@ Style Props
 | `titleTxtStyle` | `StyleProp<TextStyle>` | — | Custom styles for the title text above the dropdown. |
 | `selectedTextStyle` | `StyleProp<TextStyle>` | — | Custom styles for the selected item text shown in the dropdown. |
 
+
+## APIUtils Service
+
+```js
+import { apiUtils } from 'react-native-triveni-common-component';
+
+const fetchData = async () => {
+  try {
+    const data = await apiUtils.GET('/todos/1');
+    console.log('GET Response:', data);
+  } catch (error) {
+    console.error('API Error:', error);
+  }
+};
+```
+
+### Preview
+![Hosted Image](https://github.com/TGS-DivyeshPatel/react-native-triveni-common-component/blob/main/assets/APIServicePreview.png 'API Service Preview')
+
+### Configuration Properties
+| Prop | Default | Type | Description |
+|------|---------|------|-------------|
+| **baseURL** | - | string | Base URL for API requests |
+| **accessToken** | undefined | string | Optional access token |
+| **refreshToken** | undefined | function | Function to refresh expired access token |
+| **handleLogout** | undefined | function | Function to handle user logout on session expiry |
+| **logger** | - | AppLogger | Logger instance for debug/error logs |
+| **i18n** | undefined | I18nAdapter | Optional localization adapter |
+| **isShowAlertOnError** | true | boolean | Enable or disable alert on API errors |
+
+### Methods
+| Method | Type | Description |
+|--------|------|-------------|
+| **GET(url: string)** | async | Perform GET request |
+| **POST(url: string, params?: any)** | async | Perform POST request |
+| **FORM_POST(url: string, params: any)** | async | POST request with multipart/form-data |
+| **PUT(url: string, params: any)** | async | Perform PUT request |
+| **DELETE(url: string, params?: any)** | async | Perform DELETE request |
+
+---
+
+## LogConfig Service
+
+```js
+import { LOG, createAppLogger, type LogMessage } from 'react-native-triveni-common-component';
+
+LOG.debug('Debug message');
+LOG.info('Info message');
+LOG.warn('Warning message');
+LOG.error('Error message');
+```
+
+### Preview
+![Hosted Image](https://github.com/TGS-DivyeshPatel/react-native-triveni-common-component/blob/main/assets/LogPreview.png 'Log Service Preview')
+
+### Configuration Properties
+| Prop | Default | Type | Description |
+|------|---------|------|-------------|
+| **fileName** | `app_logs_YYYY-MM-DD.txt` | string | Log file name |
+| **enableConsole** | true | boolean | Enable console logs |
+| **enableFile** | true | boolean | Enable file logs |
+| **networkTransport** | undefined | function | Send logs to server |
+| **severity** | debug | enum | Minimum log level: debug, info, warn, error |
+
+### Methods
+| Method | Type | Description |
+|--------|------|-------------|
+| **debug(...args: any[])** | function | Log debug messages |
+| **info(...args: any[])** | function | Log info messages |
+| **warn(...args: any[])** | function | Log warning messages |
+| **error(...args: any[])** | function | Log error messages |
+| **getCurrentLogFilePath()** | function | Get current log file path |
+| **makeLogFolder()** | async | Create log folder if not exists |
+| **deleteLogFile()** | async | Delete all existing log files |
+
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
