@@ -1,5 +1,9 @@
-import TriveniCommonComponent from './NativeTriveniCommonComponent';
+import ReactNativeCommonComponent from './NativeTriveniCommonComponent';
 
 export function multiply(a: number, b: number): number {
-  return TriveniCommonComponent.multiply(a, b);
+  return ReactNativeCommonComponent.multiply(a, b);
 }
+export * from './Config';
+export * from './Components';
+export * from './networking/APIFunctions';
+export * from './utils/LogConfig';
