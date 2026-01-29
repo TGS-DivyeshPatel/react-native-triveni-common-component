@@ -15,15 +15,19 @@ npm install react-native-device-info
 ```
 
 ```sh
-npm install react-native-fast-image
+npm install react-native-fs
 ```
 
 ```sh
-npm install @gorhom/bottom-sheet
+npm install react-native-logs
 ```
 
 ```sh
-npm install @react-native-community/slider
+npm install react-native-svg
+```
+
+```sh
+npm install react-native-gesture-handler
 ```
 
 ### ios
