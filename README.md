@@ -936,7 +936,6 @@ Style Props
 | `titleTxtStyle` | `StyleProp<TextStyle>` | — | Custom styles for the title text above the dropdown. |
 | `selectedTextStyle` | `StyleProp<TextStyle>` | — | Custom styles for the selected item text shown in the dropdown. |
 
-
 ## APIUtils Service
 
 ```js
@@ -952,8 +951,13 @@ const fetchData = async () => {
 };
 ```
 
-### Preview
-![Hosted Image](https://github.com/TGS-DivyeshPatel/react-native-triveni-common-component/blob/main/assets/APIServicePreview.png 'API Service Preview')
+### Overview
+
+A centralized API service built on top of **Axios** that handles authentication, token refresh, request/response logging, standardized error handling, and optional user alerts.
+
+### Overview
+
+A flexible and extensible logging service built on top of **react-native-logs** with support for console logging, file-based logging, and optional network log transport. Designed for debugging, production monitoring, and issue tracking.
 
 ### Configuration Properties
 | Prop | Default | Type | Description |
