@@ -30,6 +30,10 @@ npm install react-native-svg
 npm install react-native-gesture-handler
 ```
 
+```sh
+npm install @react-native-community/slider
+```
+
 ### ios
 
 ```sh
