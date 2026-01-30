@@ -1,6 +1,6 @@
 {
   "name": "react-native-triveni-common-component",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "react-native-triveni-common-component",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
@@ -88,6 +88,7 @@
     "typescript": "^5.9.2"
   },
   "peerDependencies": {
+    "@react-native-community/slider": "^5.1.2",
     "react": "*",
     "react-native": "*",
     "react-native-device-info": "^15.0.1",
@@ -178,7 +179,6 @@
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^5.2.8",
-    "@react-native-community/slider": "^5.1.2",
     "axios": "^1.13.4",
     "buffer": "^6.0.3",
     "jwt-decode": "^4.0.0",
