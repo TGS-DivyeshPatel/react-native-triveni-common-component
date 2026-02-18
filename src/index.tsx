@@ -7,3 +7,4 @@ export * from './Config';
 export * from './Components';
 export * from './networking/APIFunctions';
 export * from './utils/LogConfig';
+export * from './customHooks';
