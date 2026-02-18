@@ -1,64 +1,44 @@
+
 import React, { useState } from 'react';
-import {
-  ActivityIndicator,
-  Image,
-  StyleSheet,
-  View,
-} from 'react-native';
+import { ActivityIndicator, StyleSheet } from 'react-native';
 import { getCustomThemeConfig } from '../Config';
+import FastImage, { type FastImageProps } from 'react-native-fast-image';
 
-import type {
-  ImageProps,
-  ViewStyle,
-} from 'react-native';
+const getStyles = () =>
+  StyleSheet.create({
+    imageView: {
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  });
 
-interface CustomImageProps extends ImageProps {
-  containerStyle?: ViewStyle;
-}
-
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    overflow: 'hidden',
-  },
-  image: {
-    ...StyleSheet.absoluteFillObject,
-  },
-});
-
-const CustomImage: React.FC<CustomImageProps> = ({
-  source,
-  resizeMode,
-  containerStyle,
-  style,
-  ...props
-}) => {
+const CustomImage: React.FC<FastImageProps> = (props) => {
+  const { resizeMode, source, style } = props;
   const { colors } = getCustomThemeConfig();
-  const [loading, setLoading] = useState(false);
+  const styles = getStyles();
+  const [isLoading, setIsLoading] = useState(true);
 
-  const isRemote =
-    typeof source === 'object' &&
-    source !== null &&
-    'uri' in source;
+  const handleLoadStart = () => {
+    setIsLoading(true);
+  };
+
+  const handleLoadEnd = () => {
+    setIsLoading(false);
+  };
 
   return (
-    <View style={[styles.container, containerStyle]}>
-      <Image
-        source={source}
-        resizeMode={resizeMode || 'cover'}
-        style={[styles.image, style]}
-        onLoadStart={() => setLoading(true)}
-        onLoadEnd={() => setLoading(false)}
-        onError={() => setLoading(false)}
-        {...props}
-      />
-      {(loading && isRemote) && (
-        <ActivityIndicator size="small" color={colors.gray} />
-      )}
-    </View>
+    <FastImage
+      source={source}
+      resizeMode={resizeMode || 'cover'}
+      style={[styles.imageView, style]}
+      onLoadStart={handleLoadStart}
+      onLoadEnd={handleLoadEnd}
+      onError={handleLoadEnd}
+      {...props}
+    >
+      {isLoading && <ActivityIndicator size="small" color={colors.gray} />}
+    </FastImage>
   );
 };
 
 export default CustomImage;
-export type { CustomImageProps };

@@ -175,12 +175,9 @@ export default function App() {
             fontSize="md"
           />
           <CustomButton title="Call API WITH LOG" onPress={handleCAllAPI} />
-          <CustomImage source={{
-            uri: "https://fastly.picsum.photos/id/239/200/300.jpg?hmac=jBV5mUiY1RXDAmu4rQXOdWeutyztlxqFSOVpnJ-QUb8",
-            scale: 10,
-            cache: 'reload',
-          }}
-            containerStyle={{ height: 200, width: 200 }}
+          <CustomImage
+            source={{ uri: "https://fastly.picsum.photos/id/239/200/300.jpg?hmac=jBV5mUiY1RXDAmu4rQXOdWeutyztlxqFSOVpnJ-QUb8" }}
+            style={{ width: 200, height: 200, }}
           />
           <TextWithImage
             numberOfLines={3}

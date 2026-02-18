@@ -8,7 +8,7 @@ export {
     type CustomTextInputProps,
 } from './CustomInput';
 export { default as CustomLoader, type LoaderProps } from './CustomLoader';
-export { default as CustomImage, type CustomImageProps } from './CustomImage';
+export { default as CustomImage } from './CustomImage';
 export { default as CustomTag, type CustomTagProps } from './CustomTag';
 export {
     default as TextWithImage,
