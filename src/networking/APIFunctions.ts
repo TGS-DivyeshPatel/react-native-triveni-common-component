@@ -5,8 +5,8 @@ import type { AppLogger } from "../utils/LogConfig";
 
 interface APIUtilsConfig {
     baseURL: string;
-    accessToken?: string;
-    refreshToken?: () => Promise<string>;
+    getAccessToken?: () => Promise<string | null>;
+    getRefreshToken?: () => Promise<string | null>;
     handleLogout?: () => void;
     logger: AppLogger;
     i18n?: I18nAdapter;
@@ -42,11 +42,11 @@ export class APIUtils {
 
     private async handleRequest(config: any) {
         config.baseURL = this.config.baseURL;
-        let accessToken = this.config.accessToken;
+        let accessToken = await this.config.getAccessToken?.();
         if (accessToken) {
             const expired = await this.isTokenExpired(accessToken);
             if (expired) {
-                accessToken = await this.config.refreshToken?.();
+                accessToken = await this.config.getRefreshToken?.();
             }
         }
 

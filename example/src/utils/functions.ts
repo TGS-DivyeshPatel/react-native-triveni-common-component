@@ -13,8 +13,8 @@ export var LOG = createAppLogger({
 
 export const apiUtils = new APIUtils({
     baseURL: "https://jsonplaceholder.typicode.com",
-    accessToken: undefined,
-    refreshToken: undefined,
+    getAccessToken: undefined,
+    getRefreshToken: undefined,
     logger: LOG,
     handleLogout: () => {
         // Handle user logout
