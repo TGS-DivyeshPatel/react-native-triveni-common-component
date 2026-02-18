@@ -67,7 +67,7 @@ const CustomAvatar: React.FC<CustomAvatarProps> = ({
         {uri ? (
           <CustomImage
             source={{ uri }}
-            containerStyle={{ width: size, height: size, borderRadius: radius }}
+            style={{ width: size, height: size, borderRadius: radius }}
           />
         ) : (
           renderInitials()
