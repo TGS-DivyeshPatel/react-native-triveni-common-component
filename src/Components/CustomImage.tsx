@@ -56,3 +56,4 @@ const CustomImage: React.FC<CustomImageProps> = ({
 };
 
 export default CustomImage;
+export type { CustomImageProps };
