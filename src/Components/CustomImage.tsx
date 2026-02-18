@@ -35,7 +35,12 @@ const CustomImage: React.FC<CustomImageProps> = ({
   ...props
 }) => {
   const { colors } = getCustomThemeConfig();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  const isRemote =
+    typeof source === 'object' &&
+    source !== null &&
+    'uri' in source;
 
   return (
     <View style={[styles.container, containerStyle]}>
@@ -48,7 +53,7 @@ const CustomImage: React.FC<CustomImageProps> = ({
         onError={() => setLoading(false)}
         {...props}
       />
-      {loading && (
+      {(loading && isRemote) && (
         <ActivityIndicator size="small" color={colors.gray} />
       )}
     </View>
